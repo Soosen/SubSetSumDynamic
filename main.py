@@ -66,4 +66,6 @@ def SubSetSum(NumbersSet, ExpectedSum, printMatrix):
 NUMBER_SET = [2, 3, 6, 7, 10, 13, 35, 40, 55, 62, 128]
 EXPECTED_SUM = 293
 PRINT_MATRIX = False
+
+#call the function
 SubSetSum(NUMBER_SET, EXPECTED_SUM, PRINT_MATRIX) 
