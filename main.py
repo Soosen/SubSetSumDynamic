@@ -1,9 +1,7 @@
 import numpy
 
-
 def SubSetSum(NumbersSet, ExpectedSum, printMatrix):
     matrix = numpy.zeros((len(NumbersSet), ExpectedSum + 1))
-
 
     #define the sum of 0 as true
     for i in range(len(NumbersSet)):
@@ -32,23 +30,32 @@ def SubSetSum(NumbersSet, ExpectedSum, printMatrix):
             if(matrix[i - 1][j - NumbersSet[i]] == 1):
                 matrix[i][j] = 1
 
+    #print matrix if wanted
     if(printMatrix):
         print(matrix)
 
+    #no such subset found
     if(matrix[len(NumbersSet) - 1][ExpectedSum] != 1):
         print("The is no such a subset.")
         return
 
+    #trace the subset
     output = []
     i, j = len(NumbersSet) - 1, ExpectedSum
-    while(j != 0 and i != 0):      
+
+    #loop until index 0
+    while(j != 0 and i != 0):
+
+        #go one row higher      
         if(matrix[i - 1][j] == 1):
             i -= 1
         else:
+            #append current number N to the array and go N steps to the left and one upwards
             output.append(NumbersSet[i])
             j -= NumbersSet[i]
             i -= 1
 
+    #print input and output
     print("Input set: ", NumbersSet)
     print("Expected sum: ", ExpectedSum)
     print("The subset is: ", output)
