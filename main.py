@@ -44,16 +44,16 @@ def SubSetSum(NumbersSet, ExpectedSum, printMatrix):
     i, j = len(NumbersSet) - 1, ExpectedSum
 
     #loop until index 0
-    while(j != 0 and i != 0):
-
+    while(j != 0 or i != 0):
         #go one row higher      
-        if(matrix[i - 1][j] == 1):
+        if(matrix[i - 1][j] == 1 and i != 0):
             i -= 1
         else:
             #append current number N to the array and go N steps to the left and one upwards
             output.append(NumbersSet[i])
             j -= NumbersSet[i]
-            i -= 1
+            if(i != 0):
+                i -= 1
 
     #print input and output
     print("Input set: ", NumbersSet)
@@ -64,8 +64,8 @@ def SubSetSum(NumbersSet, ExpectedSum, printMatrix):
 
 #HERE IS THE INPUT
 NUMBER_SET = [2, 3, 6, 7, 10, 13, 35, 40, 55, 62, 128]
-EXPECTED_SUM = 293
-PRINT_MATRIX = False
+EXPECTED_SUM = 15
+PRINT_MATRIX = True
 
 #call the function
 SubSetSum(NUMBER_SET, EXPECTED_SUM, PRINT_MATRIX) 
