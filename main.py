@@ -1,6 +1,3 @@
-from multiprocessing.dummy import Array
-
-
 import numpy
 
 
